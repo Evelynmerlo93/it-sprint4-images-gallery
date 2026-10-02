@@ -1,9 +1,14 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Imagen } from '../interfaces/imagen.interface';
 
 @Component({
   selector: 'app-tarjeta-img',
-  imports: [],
+  standalone: true,
+  imports: [CommonModule],
   templateUrl: './tarjeta-img.html',
-  styleUrl: './tarjeta-img.css',
+  styleUrl: './tarjeta-img.css'
 })
-export class TarjetaImg {}
+export class TarjetaImg {
+  @Input() imagenTarjeta!: Imagen;
+}
