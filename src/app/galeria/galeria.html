@@ -1,1 +1,11 @@
-<p>galeria works!</p>
+<div class="galeria-container">
+  <h2>Galería de Imágenes</h2>
+  
+  <div class="grid-tarjetas">
+    <!-- Recorremos la lista con @for -->
+    @for (img of listaImagenes; track img.id) {
+      <!-- Pasamos cada imagen al componente hijo con [imagenTarjeta] -->
+      <app-tarjeta-img [imagenTarjeta]="img"></app-tarjeta-img>
+    }
+  </div>
+</div>
