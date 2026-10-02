@@ -5,7 +5,10 @@
     <!-- Recorremos la lista con @for -->
     @for (img of listaImagenes; track img.id) {
       <!-- Pasamos cada imagen al componente hijo con [imagenTarjeta] -->
-      <app-tarjeta-img [imagenTarjeta]="img"></app-tarjeta-img>
+     <app-tarjeta-img 
+        [imagenTarjeta]="img" 
+        (alSeleccionar)="manejarClickImagen($event)">
+      </app-tarjeta-img>
     }
   </div>
 </div>

@@ -1,4 +1,5 @@
-<div class="tarjeta">
+<!-- (click) es un Event Binding de Angular que escucha clics de JavaScript -->
+<div class="tarjeta" (click)="onCardClick()">
   <img [src]="imagenTarjeta.url" [alt]="imagenTarjeta.titulo">
   <h3>{{ imagenTarjeta.titulo }}</h3>
 </div>
