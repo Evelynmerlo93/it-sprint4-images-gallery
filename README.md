@@ -1,59 +1,60 @@
-# TempGallery
+🖼️ Galería de Imágenes en Angular (Sprint 4)
+Aplicación web desarrollada en Angular (versión moderna con componentes standalone) que implementa una galería interactiva utilizando una arquitectura de componentes padre-hijo, paso de datos mediante @Input y comunicación de eventos con @Output y EventEmitter.
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.24.
+🚀 Tecnologías y Herramientas
+Angular (Arquitectura Standalone / TypeScript)
 
-## Development server
+HTML5 / CSS3
 
-To start a local development server, run:
+Git & GitHub para el control de versiones
 
-```bash
+📂 Estructura del Proyecto
+El proyecto está organizado siguiendo buenas prácticas de componentes reutilizables:
+
+Plaintext
+src/
+ └─ app/
+     ├─ galeria/                # Componente Padre (Gestiona la lista de datos)
+     │   ├─ galeria.css
+     │   ├─ galeria.html
+     │   └─ galeria.ts
+     │
+     ├─ tarjeta-img/            # Componente Hijo (Renderiza cada tarjeta individual)
+     │   ├─ tarjeta-img.css
+     │   ├─ tarjeta-img.html
+     │   └─ tarjeta-img.ts
+     │
+     ├─ interfaces/             # Contratos de tipos de datos
+     │   └─ imagen.interface.ts
+     │
+     ├─ app.ts                  # Componente raíz principal
+     ├─ app.html                # Plantilla principal con la app-galeria
+     └─ app.routes.ts           # Rutas de la aplicación
+💡 Funcionamiento y Conceptos Clave
+Comunicación Padre a Hijo (@Input):
+El componente GaleriaComponent almacena un listado de imágenes (listaImagenes) y se los pasa de forma individual al componente hijo TarjetaImgComponent utilizando la directiva @Input() imagenTarjeta.
+
+Renderizado Dinámico (@for):
+Se utiliza el bucle moderno de Angular (@for con track) para recorrer la colección de imágenes y pintar de forma automática una tarjeta por cada elemento.
+
+Comunicación Hijo a Padre (@Output y EventEmitter):
+Cuando el usuario hace clic en una tarjeta específica, el componente hijo emite un evento personalizado (@Output() alSeleccionar) enviando los datos de la imagen seleccionada hacia el componente padre para desencadenar una acción (como mostrar una alerta con el título de la imagen).
+
+⚙️ Cómo ejecutar el proyecto localmente
+Clona este repositorio en tu equipo:
+
+Bash
+git clone <URL-DE-TU-REPOSITORIO>
+Instala las dependencias necesarias:
+
+Bash
+npm install
+Arranca el servidor de desarrollo local:
+
+Bash
 ng serve
-```
+Abre tu navegador web y entra en la dirección:
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Plaintext
+http://localhost:4200/
+¿Cómo usarlo?
