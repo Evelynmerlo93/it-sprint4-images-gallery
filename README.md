@@ -1,60 +1,53 @@
-🖼️ Galería de Imágenes en Angular (Sprint 4)
-Aplicación web desarrollada en Angular (versión moderna con componentes standalone) que implementa una galería interactiva utilizando una arquitectura de componentes padre-hijo, paso de datos mediante @Input y comunicación de eventos con @Output y EventEmitter.
+# 🖼️ Galería de Imágenes en Angular 
 
-🚀 Tecnologías y Herramientas
-Angular (Arquitectura Standalone / TypeScript)
+Aplicación web desarrollada en Angular (versión moderna con componentes *standalone*) que implementa una galería interactiva utilizando una arquitectura de componentes padre-hijo, paso de datos mediante `@Input()` y comunicación de eventos con `@Output()` y `EventEmitter()`.
 
-HTML5 / CSS3
+---
 
-Git & GitHub para el control de versiones
+## 🚀 Tecnologías y Herramientas
 
-📂 Estructura del Proyecto
+* **Angular (Standalone Components)**
+* **TypeScript / HTML5 / CSS3**
+* **Git & GitHub** para el control de versiones
+
+---
+
+## 📁 Estructura del Proyecto
+
 El proyecto está organizado siguiendo buenas prácticas de componentes reutilizables:
 
-Plaintext
+```text
 src/
- └─ app/
-     ├─ galeria/                # Componente Padre (Gestiona la lista de datos)
-     │   ├─ galeria.css
-     │   ├─ galeria.html
-     │   └─ galeria.ts
-     │
-     ├─ tarjeta-img/            # Componente Hijo (Renderiza cada tarjeta individual)
-     │   ├─ tarjeta-img.css
-     │   ├─ tarjeta-img.html
-     │   └─ tarjeta-img.ts
-     │
-     ├─ interfaces/             # Contratos de tipos de datos
-     │   └─ imagen.interface.ts
-     │
-     ├─ app.ts                  # Componente raíz principal
-     ├─ app.html                # Plantilla principal con la app-galeria
-     └─ app.routes.ts           # Rutas de la aplicación
+└── app/
+    ├── galeria/              # Componente Padre (Gestiona la lista de datos)
+    ├── interfaces/           # Contratos de tipos de datos (imagen.interface.ts)
+    ├── tarjeta-img/          # Componente Hijo (Renderiza cada tarjeta individual)
+    ├── app.component.ts      # Componente raíz principal
+    ├── app.component.html    # Plantilla principal
+    └── app.routes.ts         # Rutas de la aplicación
+
 💡 Funcionamiento y Conceptos Clave
-Comunicación Padre a Hijo (@Input):
-El componente GaleriaComponent almacena un listado de imágenes (listaImagenes) y se los pasa de forma individual al componente hijo TarjetaImgComponent utilizando la directiva @Input() imagenTarjeta.
+Comunicación Padre a Hijo (@Input): El componente GaleriaComponent almacena un listado de imágenes (listaImagenes) y se las pasa de forma individual al componente hijo TarjetaImgComponent utilizando la directiva @Input() imagenTarjeta.
 
-Renderizado Dinámico (@for):
-Se utiliza el bucle moderno de Angular (@for con track) para recorrer la colección de imágenes y pintar de forma automática una tarjeta por cada elemento.
+Renderizado Dinámico (@for): Se utiliza el bucle moderno de Angular (@for con track) para recorrer la colección de imágenes y pintar de forma automática una tarjeta por cada elemento.
 
-Comunicación Hijo a Padre (@Output y EventEmitter):
-Cuando el usuario hace clic en una tarjeta específica, el componente hijo emite un evento personalizado (@Output() alSeleccionar) enviando los datos de la imagen seleccionada hacia el componente padre para desencadenar una acción (como mostrar una alerta con el título de la imagen).
+Comunicación Hijo a Padre (@Output y EventEmitter): Cuando el usuario hace clic en una tarjeta específica, el componente hijo emite un evento personalizado (@Output() alSeleccionar) enviando los datos de la imagen seleccionada hacia el componente padre.
 
 ⚙️ Cómo ejecutar el proyecto localmente
 Clona este repositorio en tu equipo:
 
 Bash
-git clone <URL-DE-TU-REPOSITORIO>
-Instala las dependencias necesarias:
+git clone <url-del-repositorio>
+Entra a la carpeta del proyecto:
+
+Bash
+cd it-sprint4-images-gallery
+Instala las dependencias:
 
 Bash
 npm install
-Arranca el servidor de desarrollo local:
+Ejecuta el servidor de desarrollo:
 
 Bash
 ng serve
-Abre tu navegador web y entra en la dirección:
-
-Plaintext
-http://localhost:4200/
-¿Cómo usarlo?
+Abre tu navegador en http://localhost:4200/.
