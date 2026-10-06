@@ -1,5 +1,5 @@
-<!-- Event Binding de Angular que escucha clics de JavaS -->
-<div class="tarjeta" (click)="onCardClick()">
+<!-- Event Binding de Angular que escucha clics y clase condicional -->
+<div class="tarjeta" [class.featured]="isFeatured" (click)="onCardClick()">
 
   <img [src]="imagenTarjeta.url" [alt]="imagenTarjeta.titulo">
 

@@ -4,13 +4,15 @@
   
   <div class="grid-tarjetas">
 
-    <!-- Recorremos la lista tantas veces como elementos tenga-->
-    @for (img of listaImagenes; track img.id) {
-      <!-- Pasamos cada imagen al componente hijo con [imagenTarjeta] -->
-     <app-tarjeta-img 
+    <!-- Recorremos la lista y agregamos '; let esPrimero = $first' -->
+    @for (img of listaImagenes; track img.id; let esPrimero = $first) {
+      
+      <app-tarjeta-img 
         [imagenTarjeta]="img" 
+        [isFeatured]="esPrimero"
         (alSeleccionar)="manejarClickImagen($event)">
       </app-tarjeta-img>
+      
     }
 
   </div>

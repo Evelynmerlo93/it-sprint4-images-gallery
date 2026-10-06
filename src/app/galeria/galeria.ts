@@ -9,6 +9,7 @@ import { Imagen } from '../interfaces/imagen.interface';
   imports:[CommonModule, TarjetaImg],
   templateUrl:'./galeria.html',
   styleUrl:'./galeria.css'
+  
 
 })
 //componente padre. Guarda datos de img y reacciona al clic 
@@ -21,11 +22,13 @@ export class GaleriaComponent {
       url: 'https://picsum.photos/id/10/400/300',
     },
 
+
     {
       id:2,
       titulo: 'Bosque mágico',
       url: 'https://picsum.photos/id/15/400/300',
     },
+
 
     {
       id:3,
@@ -37,6 +40,7 @@ export class GaleriaComponent {
 
   manejarClickImagen(imagenSeleccionada: Imagen) {
     console.log('Imagen clickeada', imagenSeleccionada);
+
     alert(`Has seleccionado: ${imagenSeleccionada.titulo}`);
   }
 }
