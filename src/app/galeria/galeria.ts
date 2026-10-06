@@ -11,7 +11,7 @@ import { Imagen } from '../interfaces/imagen.interface';
   styleUrl:'./galeria.css'
 
 })
-//componente padre. Guarda lista con datos de las img y reacciona al clic 
+//componente padre. Guarda datos de img y reacciona al clic 
 export class GaleriaComponent {
     listaImagenes: Imagen[] = [
 

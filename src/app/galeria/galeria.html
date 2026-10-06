@@ -1,8 +1,10 @@
 <div class="galeria-container">
+
   <h2>Galería de Imágenes</h2>
   
   <div class="grid-tarjetas">
-    <!-- Recorremos la lista repitiendo el bloque tantas veces como elementos tenga -->
+
+    <!-- Recorremos la lista tantas veces como elementos tenga-->
     @for (img of listaImagenes; track img.id) {
       <!-- Pasamos cada imagen al componente hijo con [imagenTarjeta] -->
      <app-tarjeta-img 
@@ -10,5 +12,6 @@
         (alSeleccionar)="manejarClickImagen($event)">
       </app-tarjeta-img>
     }
+
   </div>
 </div>

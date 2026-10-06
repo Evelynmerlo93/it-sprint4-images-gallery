@@ -13,10 +13,11 @@ import { Imagen } from '../interfaces/imagen.interface';
 })
 // Clases 
 export class TarjetaImg {
-  //input dice "el componente padre me pasa un obj de tipo imagen para pintarlo". ! indica a ts que esa propiedad recibira un valor seguro
+
+  //INPUT para hablar con hijo(PADRE baja orden con input)
   @Input() imagenTarjeta!: Imagen;
 
-//canal de salida. EventEmitter es el "mensajero". envia datos al padre
+//envia datos al padre.canal de salida. EventEmitter es el "mensajero". 
   @Output() alSeleccionar = new EventEmitter<Imagen>();
 
   // funcion que ejecutara cuando haga CLIC en la tarj
