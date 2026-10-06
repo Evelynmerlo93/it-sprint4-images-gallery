@@ -17,7 +17,7 @@ export class TarjetaImg {
 
   //INPUT para hablar con hijo(PADRE baja orden con input)
   @Input() imagenTarjeta!: Imagen;
-  //Prepárate:, porque vas a recibir una propiedad llamada isFeatured que será verdadera o falsa
+  //nuevo input de padre a hijo ,sera verdadera o falsa
   @Input() isFeatured: boolean = false;
 
  //envia datos al padre.canal de salida. EventEmitter es el "mensajero". 
