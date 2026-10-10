@@ -1,8 +1,9 @@
-<!-- Event Binding de Angular que escucha clics y nueva clase condicional -->
+<!-- Event Binding escucha clics  -->
 <div class="tarjeta" [class.featured]="isFeatured" (click)="onCardClick()">
 
   <img [src]="imagenTarjeta.url" [alt]="imagenTarjeta.titulo">
 
+  <button (click)="onDeleteClick($event)">Borrar</button>
   <h3>{{ imagenTarjeta.titulo }}</h3>
 
 </div>

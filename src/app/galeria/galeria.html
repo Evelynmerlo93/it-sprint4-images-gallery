@@ -5,12 +5,13 @@
   <div class="grid-tarjetas">
 
     <!-- Recorremos la lista y agrego ; let esPrimero = $first para que tome la primera img -->
-    @for (img of listaImagenes; track img.id; let esPrimero = $first) {
+    @for (img of listaImagenes(); track img.id; let esPrimero = $first) {
       
       <app-tarjeta-img 
         [imagenTarjeta]="img" 
         [isFeatured]="esPrimero"
-        (alSeleccionar)="manejarClickImagen($event)">
+(alSeleccionar)="manejarClickImagen($event)"
+        (deleteImage)="removerImagen(img.id)">
       </app-tarjeta-img>
       
     }

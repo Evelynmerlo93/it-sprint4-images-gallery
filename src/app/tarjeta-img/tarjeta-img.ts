@@ -1,5 +1,5 @@
 //logica
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Imagen } from '../interfaces/imagen.interface';
 
@@ -9,24 +9,28 @@ import { Imagen } from '../interfaces/imagen.interface';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './tarjeta-img.html',
-  styleUrl: './tarjeta-img.css'
+  styleUrl: './tarjeta-img.css',
 })
 
-// Clases 
+// Clases
 export class TarjetaImg {
-
   //INPUT para hablar con hijo(PADRE baja orden con input)
   @Input() imagenTarjeta!: Imagen;
   //nuevo input de padre a hijo ,sera verdadera o falsa
   @Input() isFeatured: boolean = false;
+  // cable moderno para avisar q ID queremos borrar ( como id es number, y no string lo cambio)
+  // CABLES MODERNOS (Outputs)
+  alSeleccionar = output<Imagen>(); // 👈 ¡Faltaba este! Para avisar qué imagen se seleccionó
+  deleteImage = output<number>(); // Para avisar qué ID queremos borrar
 
- //envia datos al padre.canal de salida. EventEmitter es el "mensajero". 
-  @Output() alSeleccionar = new EventEmitter<Imagen>();
-
-  // funcion que ejecutara cuando haga CLIC en la tarj
+  // Función cuando hacen clic en toda la tarjeta
   onCardClick() {
+    this.alSeleccionar.emit(this.imagenTarjeta); // 👈 ¡Faltaba esta función!
+  }
 
-    // Enviamos la imagen actual hacia el padre
-    this.alSeleccionar.emit(this.imagenTarjeta);
+  // La función que ya tenías para el botón de borrar
+  onDeleteClick(event: MouseEvent) {
+    event.stopPropagation();
+    this.deleteImage.emit(this.imagenTarjeta.id);
   }
 }

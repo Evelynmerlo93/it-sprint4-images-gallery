@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TarjetaImg } from '../tarjeta-img/tarjeta-img';
 import { Imagen } from '../interfaces/imagen.interface';
@@ -12,9 +12,10 @@ import { Imagen } from '../interfaces/imagen.interface';
   
 
 })
-//componente padre. Guarda datos de img y reacciona al clic 
+//componente padre. lo cambio de variable comun a senal(lo envuelvo debntro de signal())
 export class GaleriaComponent {
-    listaImagenes: Imagen[] = [
+
+    listaImagenes = signal < Imagen[] >([
 
     {
       id:1,
@@ -36,11 +37,15 @@ export class GaleriaComponent {
       url: 'https://picsum.photos/id/28/400/300',
     }
 
-  ];
+  ]);
 
   manejarClickImagen(imagenSeleccionada: Imagen) {
     console.log('Imagen clickeada', imagenSeleccionada);
 
     alert(`Has seleccionado: ${imagenSeleccionada.titulo}`);
+  }
+
+  removerImagen(id: number) {
+    this.listaImagenes.update(imagenes => imagenes.filter(img => img.id !== id));
   }
 }
